@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // object 对象字面量 复杂数据类型
+        let obj = {
+            name : 'zm',
+            age : 18
+        }
+        // 该数据存储在堆内存之中，并且可以对其进行增删改查
+        delete obj.name
+        obj.school = 'ECUT';  
+        console.log(obj);
+        // 赋值 操作：指向了同一块内存地址 所以数据共享
+        let obj1 = obj;
+        obj1.homeTown = 'jx';
+        console.log(obj1);
+        let arr1 = [0,1,2];
+        let arr2 = arr1;
+        arr2.push(3);
+        console.log(arr1,arr2);
+
+
+
+        // 基本数据类型
+        let str1 = 'ECUT';  //str1 =>变量  ECUT=>值
+        let str2 = str1;
+        str2 = 'ECIT';
+        console.log(str1,str2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<button id="btn"></button>
+<script>
+    // window = {
+    //     a : 'global variable'
+    // }
+    const btn = document.getElementById('btn');
+    function onClick(){
+        console.log(this)
+        console.log(this.a)
+    }
+    // this指向谁由运行时决定，addEventListener会调用你
+    // addEventListener就会帮我们回调里面的this 绑定我们点击的元素
+    btn.addEventListener('click',function(){//模板
+        onClick.call(obj,a)
+    })
+    var obj = {
+        name :'name',
+        a :'obj a'
+    }
+    // console.log(obj.name);
+    // console.log(obj.sex);
+    var a = 'global variable'
+    function foo(b,c){
+        // this===window
+        // this.a === window.a
+        console.log(this);
+        // 获取全局下面的a
+        console.log(this.a+b,c);
+        // +在js中用来做连接符，做一个拼接操作
+    }
+    // document.createElement('div');
+    // fetch('www.baidu.com')
+    // 1：不加任何修饰，用（）调用，默认this指向window
+    // foo('b')
+    // 运行时才能确定 this
+    // 就有一个window的变量，var定义的全局变量，和平常用到的一些顶层方法都在window下面
+    // window是前端中全局的变量，只要一个浏览器窗口，就有一个window的全局变量
+    // 运行的时候 this
+    // 2：call（）也是调用这个函数的,第一个参数我们可以指定函数调用时 需要的 this,apply与其功能一致
+    // 往后的参数就是我们foo调用时需要的形参
+    // 往后的参数就是用foo调用时需要的形参，但是不是一个个参数分开放在后面
+    // 但是apply方法需要在形参后面用数组包起来
+    foo.apply(obj,['b var', 'c var']); 
+    // foo.call(window,'b','c variable')
+    foo.call(obj,'b var','c var')
+     // 1.foo('b')这是最简单的调用方法
+    // 2.foo.call(obj,'a','b') foo》apply(obj,['b','c'])
+</script>
+<script>
+    var obj1 = {
+        a: 1,
+        say : function(){
+            console.log(this.a)
+        }
+    }
+    var obj2 ={
+        a:2
+    }
+    obj1.say.call(obj2);//会输出啥 2
+    obj1.say()       //指向哪里 1
+
+    // console.log(obj1.say)输出函数
+    // let只在块里作用
+    let test = obj1.say;
+    test()
+</script>

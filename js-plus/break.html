@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        var myarr = new Array(70,80,66,90,50,100,89);
+        var i ;
+        for(i=0;i<myarr.length;i++){
+            if(myarr[i]<60){
+                document.write("成绩："+myarr[i]+"不及格，不输出"+"<br>");
+               continue;
+            }
+          
+            document.write("成绩："+myarr[i]+"及格,继续循环"+"<br>");
+            i+=1;
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

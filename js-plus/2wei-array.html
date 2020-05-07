@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        var Myarr = [[0, 0, 0, 0, 0, 0], [0, 1, 2, 3, 4, 5], [0, 2, 4, 6, 8, 10]];
+        var myarr = new Array(3);  //先声明一维 
+        for (var i = 0; i < 3; i++) {   //一维长度为3
+            myarr[i] = new Array();  //再声明二维 
+            for (var j = 0; j < 6; j++) {   //二维长度为6
+                myarr[i][j] = i *j;   // 赋值，每个数组元素的值为i*j
+            
+                document.write("myarr["+i+"]["+j+"]="+myarr[i][j]+"<br>");}
+            
+          
+        }
+      
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

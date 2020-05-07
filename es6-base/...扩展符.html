@@ -1,0 +1,35 @@
+<script>
+    const max = Math.max(-1,-9,-5)
+    let arr = [10,9,8,7];
+    const max1 = Math.max(...arr);
+    let str = 'abcde';
+    // =>a b c d e
+    // 如何将字符串变成数组 =>[a,b,c,d,e]
+    let arr1 = [...str]
+    let obj = {
+        name :'name',sex:'sex',
+        a:{
+            c:{
+                d:1
+            }
+        }
+    }
+    console.log(max1);
+    console.log({...obj})
+    // 引用类型 object
+    // 只想同一份地址
+    // 怎样避免？拷贝，复制
+    // 浅复制:只复制第一层
+    // 新的从obj拷贝过去 新对象
+    let obj1 = {...obj};
+    delete obj1.name;
+    delete obj.a.c;
+    console.log(obj,obj1);
+
+
+    // es6对函数扩展：剩余参数的概念
+    function sum(a,b,...rest){
+        console.log(rest);
+    }
+    sum(0,1,2,3,4,5)
+</script>

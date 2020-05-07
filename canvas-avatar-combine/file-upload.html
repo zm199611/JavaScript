@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+      .circle{
+        border: 1px solid #000;
+        width: 50px;height: 50px;
+        border-radius: 50%;
+    }
+    .btn{
+        outline: none;
+        background-color: blue;
+
+    }
+</style>
+  
+<body>
+    <input type="text" id="text" />
+    <input type="file" id="file"hidden/>
+    <button class="btn">文件上传</button>
+    <img src="" alt="" id="preview" hidden>
+    <img src="images/icon.png" alt="" id="flag" hidden>
+    <div id="circle"></div>
+    <!-- canvas相当于一个画布   不同的标签浏览器会画不同的内容 -->
+    <!-- canvas是纯空白的画布:加粗 图片 边框 圆角 阴影 渐变...完全靠自身实现 -->
+    <canvas id="combine" width="290px" height="290px">
+       
+    </canvas>
+    <!-- onchange:输入框里改变 -->
+    <script>
+        // const images = new Image();
+        const fileNode = document.getElementById('file');
+        const combine = document.getElementById('combine');
+        const ctx = combine.getContext('2d');
+        // 1.把头像画到canvas上
+        // 2.把国旗头像画到canvas上
+        fileNode.addEventListener('change',function(event){
+            // 1.拿到内容
+            // 2.放到 img src属性里面
+            // console.log(event.target)
+            // event.target==fileNode==this  谁触发了事件 event.target就指向谁
+            let file = event.target.files[0];
+            // console.log(file);
+            // Blob是一段二进制内容 2进制->base64（编码）:a-zA-Z0-9.+ 把v内容编码成64个字符组成的东西
+            //  GBK unicode：utf-8 utf-16 都是编码
+            let fileReader = new FileReader();
+            fileReader.onload = function(e){
+                // console.log(e.target.result);
+                document.getElementById('preview').src = e.target.result;
+                document.getElementById('preview').onload = function(){
+                    // 等浏览器加载完图片才能画 不然有可能没东西画
+                ctx.drawImage(document.getElementById('preview'), 0,0, 290, 290);
+                ctx.drawImage(document.getElementById('flag'), 0,0, 290, 290);
+                }
+                // 刚把src属性加上去，就立即画它，异步，浏览器还未把图片加载完
+                // 1.画头像
+               
+            }
+            fileReader.readAsDataURL(file);
+        })
+        document.querySelector('.btn').addEventListener('click',function(){
+            fileNode.click();
+        })
+    </script>
+</body>
+</html>

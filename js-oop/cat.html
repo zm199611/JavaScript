@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // js 类
+        // 猫：是个抽象的概念，泛指，没有具体指向
+        // 属性：描述类 下面name，和color都是属性
+        // 方法：描述类的特点，描述类会干什么
+        function Cat(name,color){
+            // this 依然很抽象，它指向不确定
+            this.name = name;
+            this.color =color;
+            // s属性是互通的  
+            this.say();  
+        }
+        // 每一个函数function都在带有一个prototype的属性
+        Cat.prototype.say = function(){
+            // 可以拿到属性
+            console.log('喵喵~',this.color,this.name);
+        }
+        // 怎么把它由抽象转为具体
+        // 发生new 猫 就被确定下来了
+        let cat1 = new Cat('小花','white');//定义我家的猫的名字和颜色，那么this就指向cat1 this ===cat1
+        // this ===cat2
+        // 对象{}
+        let cat2 = new Cat('小黑','black');
+        let cat3 = new Cat('小白','black');
+        // console.log(cat3);
+
+
+        // 封装（抽象）一个 sum函数
+        function sum(a,b){
+            return a + b;
+        }
+        sum(10,20);
+        // 确定下累了 a b
+    </script>
+</body>
+</html>
