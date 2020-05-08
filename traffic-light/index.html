@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        /* DOM:Element */
+        li{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #666;
+            margin-top: 100px;
+        }
+        ul.stop li:nth-child(1){
+            background-color: red;
+
+        }
+        ul.warm li:nth-child(2){
+            background-color: yellow;
+        }
+        ul.pass li:nth-child(3){
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        const ul = document.querySelector('ul');
+        // setTimeout(()=>{
+        //     ul.className = 'stop';
+        //     // 黄灯间隔一秒
+        //     setTimeout(()=>{
+        //         ul.className= 'warm';
+           
+        //     // 绿灯间隔一秒
+        //     setTimeout(()=>{
+        //         ul.className = 'pass';
+        //     },1000)
+        //     },1000)
+        // },1000)//1s
+        // 回调地狱  callback hell
+        // 如何解决繁杂的回调，使用promise
+        // 异步：不是立马实现的
+        //同步：等它实现之后再实现其他的
+        // setTimeout(()=>{
+
+        // },1000)
+        let p = new Promise(function(resolve,reject){
+            setTimeout(()=>{
+                resolve();
+                //异步任务成功 fulfilled
+                // 失败 rejected
+                // 处理中 pending
+                //1: 默认是pending => 如果调用resolve fulfilled
+                // 2:默认是pending => 如果调用reject  rejected
+                // 
+            },1000);
+        })
+        // fulfilled 成功
+        p.then(function(){
+            // 第一个灯
+            ul.className = 'stop';
+            // 第二个灯 promise then 的用法
+            // 1:如果返回了一个promise 那么还可以在后面接着链式调用then 后面的then也会等待promise看他结果是成功还是失败
+            return p;
+        })
+        .then(function(){
+            ul.className = 'warm';
+        })
+        .then(function(){
+            ul.className = 'pass';
+        })
+        // rejected 失败
+        p.catch()
+    </script>
+</body>
+</html>
