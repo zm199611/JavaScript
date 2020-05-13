@@ -57,6 +57,15 @@
   }
   // url 本身存在 url 怎么处理它
   // 现在存在 两个 ？
+  if (serializedParams) {
+    var hashmarkIndex = url.indexOf('#');
+    if (hashmarkIndex !== -1) {
+      url = url.slice(0, hashmarkIndex);
+    }
+
+    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
+  }
+  return url;
   let url = buildUrl('http://neteasecloudmusicapi.zhaoboy.com/search?a=1', {
     keywords: '海阔天空',
     type: 'all',
