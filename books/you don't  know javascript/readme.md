@@ -10,7 +10,7 @@
 
 ## 编译原理
     语言执行的底层  操作系统->编译原理编译器 解译器
-    引擎 V8 
+    引擎 V8  之中有一个字节码机制 所以十分优秀
     三个阶段：
     1. 分词/词法分析
         [var,a,=,2]
@@ -23,5 +23,6 @@
         HTML <div></div>DoM树
         (Abstract Syntax Tree  AST)
     3. 代码生成
-
-        JIT
+        编译器(Compiler)
+        解释器(Interpreter)
+        JIT 即时编译器
