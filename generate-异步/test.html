@@ -1,0 +1,64 @@
+<script>
+    function repeat(func, times, wait) {
+
+        // 方法一:
+        //     return message => {
+        //         let timer = setInterval(() => {
+        //             times-- > 0 ? func(message) : clearInterval(timer);
+        //         }, wait);
+        //     };
+        // }
+
+        // 方法二:
+        return (arg) => {
+            for (let i = 0; i < times; i++) {
+                setTimeout(() => {
+                    alert(arg)
+                }, i * wait)
+            }
+        }
+    }
+
+    // 方法三:
+    // return (content) => {
+    //             function sleep(time) {
+    //                 return new Promise((resolve, reject) => {
+    //                     setTimeout(() => {
+    //                         resolve()
+    //                     }, time)
+    //                 })
+    //             }
+
+    //             function* foo() {
+    //                 for (let i = 0; i < times; i++) {
+    //                     yield sleep(wait)
+    //                     func(content)
+    //                 }
+    //             }
+    //             let iterator = foo();
+
+    //             function autorun(obj) {
+    //                 let {
+    //                     value,
+    //                     done
+    //                 } = obj.next();
+    //                 if (done) return
+    //                 value.then(() => {
+    //                     autorun(obj)
+    //                 })
+    //             }
+    //             autorun(iterator)
+    //         }
+
+
+    //     }
+    const repeatFunc = repeat(alert, 4, 3000)
+    repeatFunc("helloworld")
+
+
+    function foo() {
+        console.log(arguments)
+        console.log(arguments.forEach)
+        console.log(Array.from(arguments))
+    }
+</script>
