@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            animation: 5s infinite alternate;
+            border-radius: 50%;
+        }
+        
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            animation: move 5s infinite alternate;
+            border-radius: 50%;
+        }
+        
+        @keyframes move {
+            from {
+                transform: translate3d(0, 0, 0);
+            }
+            to {
+                transform: translate3d(400px, 400px, 0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+
+</html>
