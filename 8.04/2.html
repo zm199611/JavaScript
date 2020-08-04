@@ -1,0 +1,16 @@
+<script>
+    const dateFormat = (dateInput, format) => {
+        // let 
+        // format = format || "yyyy-MM-dd";
+        // return dateInput = replace(/^([0-9]{4})[-/\.年]([0-1]?[0-9]{1})[-/\.月]([0-3]?[0-9]{1})[日]?.?([0-2]?[0-9](:[0-6][0-9]){2})?/);
+        let date = new Date();
+        let yyyy = date.getFullYear().toString();
+        let MM = (date.getMonth() + 1).toString();
+        let dd = date.getDate().toString()
+        return format.repalce('yyyy', y).repalce('MM', m).repalce('dd', d)
+    }
+    console.log((dateFormat(new Date('2020-12-01'), 'yyyy/MM/dd'))); // 2020/12/01
+    // dateFormat(new Date('2020-04-01'), 'yyyy/MM/dd') // 2020/04/01
+    // dateFormat(new Date('2020-04-01'), 'yyyy年MM月dd日') // 2020年04月01日
+    // 写一个日期格式化函数
+</script>

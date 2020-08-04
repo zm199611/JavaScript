@@ -1,0 +1,26 @@
+<script>
+    function zip(...args) {
+
+        let res = [];
+        for (let i = 0; i < args.length; i++) { //所有的数据
+            if (!res[j]) res[j] = [];
+            for (let j = 0; j < args[0].length; j++) {
+                res[j].push(args[i][j])
+                    // console.log(args[i][j])
+            }
+        }
+
+        // // todo
+        // let a = ['fred', 'barney'];
+        // let b = [30, 40];
+        // let c = [true, false];
+        // let z = [a, b, c]
+        // z ? (((b).push(a) + (c).push(a)), ((a).push(b) + (c).push(b))) : null
+
+
+
+
+    }
+    zip(['fred', 'barney'], [30, 40], [true, false]);
+    // => [['fred', 30, true], ['barney', 40, false]]
+</script>
