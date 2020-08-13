@@ -21,5 +21,8 @@
         debugger;
     };
     // 在 V8 中，一旦不同的作用域位于同一个父级作用域下，那么它们会共享这个父级作用域。
+    //第一次 我们的 theThing = { someMethod 闭包里有一个originalThing null}
+    // 第二次发生赋值 originalThing = 上一次 thething
+    // 闭包里面依然是originalThing theThing = { someMethod }
     setInterval(replaceThing, 20);
 </script>
