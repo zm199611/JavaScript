@@ -1,0 +1,15 @@
+<script>
+    function throttle(fn, delay) {
+        let vaild = true
+        return function() {
+            if (!vaild) {
+                return false
+            }
+            vaild = false
+            setTimeout(() => {
+                fn()
+                vaild = true
+            }, delay)
+        }
+    }
+</script>

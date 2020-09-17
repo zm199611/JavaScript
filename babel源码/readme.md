@@ -24,3 +24,6 @@ js代码由什么组成，引擎关心
 - token
 - nunberLiteral 数字字面量
   StringLiteral 字符串字面量
+- 符号 [] {} ()
+- identify var c = b+5
+
